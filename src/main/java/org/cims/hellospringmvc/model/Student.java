@@ -1,27 +1,39 @@
 package org.cims.hellospringmvc.model;
 
+import java.util.Date;
+
 public class Student {
-	private int id;
+	private Integer studId;
 	private String name;
-	private String branch;
-	private int percentage;
-	private int phone;
 	private String email;
+	private Date dob;
 	
-	public Student(String name, String branch, int percentage, int phone, String email){
-		super();
+	public void setStudId(Integer studId){
+		this.studId = studId;
+	}
+	public void setName(String name){
 		this.name = name;
-		this.branch = branch;
-		this.percentage = percentage;
-		this.phone = phone;
+	}
+	public void setEmail(String email){
 		this.email = email;
 	}
+	public void setDob(Date dob){
+		this.dob = dob;
+	}
+	public Integer getStudId(){
+		return this.studId;
+	}
+	public String getName(){
+		return this.name;
+	}
+	public String getEmail(){
+		return this.email;
+	}
+	public Date getDate(){
+		return this.dob;
+	}
 	
-	public void insert(String name, String branch, int percentage, int phone, String email){
-		this.name = name;
-		this.branch = branch;
-		this.percentage = percentage;
-		this.phone = phone;
-		this.email = email;
+	public String toString(){
+		return "ID: "+this.studId+" "+"Name: "+this.name+" "+"Email: "+this.email+" "+"Birthday: "+this.dob;
 	}
 }
