@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
@@ -33,4 +34,14 @@
   <bean id="studentService" class="org.cims.hellospringmvc.services.StudentService">
     <property name="studentMapper" ref="studentMapper"/>
   </bean>
+  
+  <bean id="jedisConnectionFactory"
+    class="org.springframework.data.redis.connect.jedis.JedisConnectionFactory"
+    p:use-pool="true" p:host-name="server" p:port="6379"/>
+  <bean id="redisTemplate"
+    class="org.springframework.data.redis.core.RedisTemplate">
+    <property name="connection-factory-ref" ref="jedisConnectionFactory"/>
+  </bean>
+    
+  
 </beans>
