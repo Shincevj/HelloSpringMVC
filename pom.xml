@@ -59,7 +59,8 @@
           </container>
           <configuration>
             <type>existing</type>
-            <home>/usr/local/java/apache-tomcat-8.5.14</home>
+            <!-- refer to an empty directory -->
+            <home>/home/fx/workspace/cargoConfiguration</home>
           </configuration>
         </configuration>
       </plugin>
