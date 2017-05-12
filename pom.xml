@@ -105,10 +105,22 @@
     <finalName>HelloSpringMVC</finalName>
     <plugins>
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.6.3</version>
+        <configuration>
+          <container>
+            <containerId>tomcat8x</containerId>
+            <home>/usr/local/java/apache-tomcat-8.5.14</home>
+          </container>
+          <!--  there is a jdbc driver problem when use self-configured tomcat 8.5/8.0 
+          <configuration>
+            <type>existing</type>
+            <home>/usr/local/java/apache-tomcat-8.5.14</home>
+          </configuration>
+          -->
+        </configuration>
       </plugin>
-    </plugins>
+ </plugins>
   </build>
 </project>
