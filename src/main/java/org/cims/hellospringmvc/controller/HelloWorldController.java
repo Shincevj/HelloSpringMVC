@@ -36,4 +36,11 @@ public class HelloWorldController {
 		studentRepository.saveStudent(student);
 		return "redis succeed";
 	}
+	
+	@RequestMapping("/redis_find")
+	public String helloreids_find(Model model){
+		Student student = studentRepository.findStudent(1);
+		model.addAttribute("redis_find", student);
+		return "redis_page";
+	}
 }

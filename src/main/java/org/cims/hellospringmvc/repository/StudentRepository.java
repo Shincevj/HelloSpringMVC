@@ -14,7 +14,7 @@ import java.util.Map;
 public interface StudentRepository {
 	void saveStudent(Student student);
 	void updateStudent(Student student);
-	Student findStudent(String studId);
+	Student findStudent(Integer studId);
 	Map<Object, Object> findAllStudents();
-	void deleteStudent(String studId);
+	void deleteStudent(Integer studId);
 }

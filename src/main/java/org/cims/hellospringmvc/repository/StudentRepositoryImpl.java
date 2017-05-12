@@ -41,7 +41,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 		hashOps.put(KEY, student.getStudId(), student);
 	}
 	
-	public Student findStudent(String studId){
+	public Student findStudent(Integer studId){
 		return (Student) hashOps.get(KEY, studId);
 	}
 	
@@ -49,7 +49,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 		return hashOps.entries(KEY);
 	}
 	
-	public void deleteStudent(String studId){
+	public void deleteStudent(Integer studId){
 		hashOps.delete(KEY, studId);
 	}
 }
