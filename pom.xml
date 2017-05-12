@@ -48,10 +48,16 @@
   <build>
     <finalName>HelloSpringMVC</finalName>
     <plugins>
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
+      </plugin>
+       -->
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.6.3</version>
       </plugin>
     </plugins>
   </build>
