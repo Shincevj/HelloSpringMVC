@@ -113,12 +113,11 @@
             <containerId>tomcat8x</containerId>
             <home>/usr/local/java/apache-tomcat-8.5.14</home>
           </container>
-          <!--  there is a jdbc driver problem when use self-configured tomcat 8.5/8.0 
           <configuration>
-            <type>existing</type>
-            <home>/usr/local/java/apache-tomcat-8.5.14</home>
+            <type>standalone</type>
+            <!--  refer to an empty directory -->
+            <home>/home/fx/workspace/cargoConfiguration</home>
           </configuration>
-          -->
         </configuration>
       </plugin>
  </plugins>
