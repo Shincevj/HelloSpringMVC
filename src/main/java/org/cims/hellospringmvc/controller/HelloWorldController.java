@@ -14,10 +14,10 @@ import org.cims.hellospringmvc.repository.*;
 @Controller
 public class HelloWorldController {
 	private StudentService studentService;
-	
+	/*
 	@Autowired
 	private StudentRepository studentRepository;
-	
+	*/
 	@Autowired
 	public void setStudentService(StudentService studentService){
 		this.studentService = studentService;
@@ -29,7 +29,7 @@ public class HelloWorldController {
 		model.addAttribute("greeting", students.toString());
 		return "helloworld";
 	}
-	
+	/*
 	@RequestMapping("/redis")
 	public @ResponseBody String helloredis(Model model) {
 		Student student = this.studentService.findStudentById(1);
@@ -42,5 +42,5 @@ public class HelloWorldController {
 		Student student = studentRepository.findStudent(1);
 		model.addAttribute("redis_find", student);
 		return "redis_page";
-	}
+	}*/
 }
