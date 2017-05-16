@@ -7,6 +7,7 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import javax.sql.DataSource;
 
@@ -20,6 +21,7 @@ import org.mybatis.spring.annotation.MapperScan;
 
 @Configuration
 @MapperScan("org.cims.hellospringmvc.mappers")
+@ComponentScan(basePackages = {"org.cims.hellospringmvc.repository"})
 public class DomainConfig {
   
   @Bean
