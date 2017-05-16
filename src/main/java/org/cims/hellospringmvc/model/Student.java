@@ -4,7 +4,11 @@ import java.util.Date;
 import java.io.Serializable;
 
 public class Student implements Serializable {
-	private Integer studId;
+	/**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+  private Integer studId;
 	private String name;
 	private String email;
 	private Date dob;

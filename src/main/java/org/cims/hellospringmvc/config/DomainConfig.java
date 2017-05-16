@@ -3,6 +3,8 @@ package org.cims.hellospringmvc.config;
 import org.springframework.context.annotation.Configuration;
 //import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.context.annotation.Bean;
 
@@ -35,6 +37,7 @@ public class DomainConfig {
     return new Student();
   }
   
+  //MyBatis
   @Bean
   public SqlSessionFactory sqlSessionFactory() throws Exception {
     SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
@@ -52,6 +55,24 @@ public class DomainConfig {
     StudentService studentService = new StudentService();
     studentService.setStudentMapper(studentMapper);
     return studentService;
+  }
+  
+  //Redis
+  @Bean
+  public JedisConnectionFactory jedisConnectionFactory() {
+    JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
+    jedisConnectionFactory.setUsePool(true);
+    jedisConnectionFactory.setHostName("localhost");
+    jedisConnectionFactory.setPort(6379);
+    
+    return jedisConnectionFactory;
+  }
+  
+  @Bean
+  public RedisTemplate redisTemplate() {
+    RedisTemplate redisTemplate = new RedisTemplate();
+    redisTemplate.setConnectionFactory(jedisConnectionFactory());
+    return redisTemplate;
   }
 
 }
