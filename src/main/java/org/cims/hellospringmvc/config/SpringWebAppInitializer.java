@@ -1,7 +1,7 @@
 package org.cims.hellospringmvc.config;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+//import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 //import org.springframework.context.ApplicationContext;
@@ -11,9 +11,9 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.context.ContextLoaderListener;
 
 public class SpringWebAppInitializer implements WebApplicationInitializer {
-  
+  //the method "onStartup" need java 1.8: Properties/Project Facets/java
   @Override
-  public void onStartup(ServletContext servletContext) throws ServletException {
+  public void onStartup(ServletContext servletContext) {
     //Create the 'root' application context
     AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
     rootContext.register(DomainConfig.class);
