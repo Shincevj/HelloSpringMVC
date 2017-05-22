@@ -107,18 +107,18 @@
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven2-plugin</artifactId>
-        <version>1.6.3</version>
+        <version>1.6.3</version>         
         <configuration>
           <container>
             <containerId>tomcat8x</containerId>
-            <home>/usr/local/java/apache-tomcat-8.5.14</home>
+            <type>installed</type>
+            <home>/usr/local/java/apache-tomcat-8.5.15</home>
           </container>
           <configuration>
             <type>standalone</type>
-            <!--  refer to an empty directory -->
             <home>/home/fx/workspace/cargoConfiguration</home>
           </configuration>
-        </configuration>
+        </configuration>       
       </plugin>
  </plugins>
   </build>
