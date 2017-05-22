@@ -112,7 +112,8 @@
           <container>
             <containerId>tomcat8x</containerId>
             <type>installed</type>
-            <home>/usr/local/java/apache-tomcat-8.5.15</home>
+            <!-- <home>/usr/local/java/apache-tomcat-8.5.15</home> -->
+            <home>${env.CATALINA_HOME}</home>
           </container>
           <configuration>
             <type>standalone</type>
