@@ -28,7 +28,8 @@ public class DomainConfig {
   public DataSource dataSource() {
     DriverManagerDataSource datasource = new DriverManagerDataSource();
     datasource.setDriverClassName("com.mysql.jdbc.Driver");
-    datasource.setUrl("jdbc:mysql://localhost:3306/MySQL");
+    //datasource.setUrl("jdbc:mysql://localhost:3306/MySQL");
+    datasource.setUrl("jdbc:mysql://localhost:3306/hellospring");
     datasource.setUsername("root");
     datasource.setPassword("234458");
     return datasource;
