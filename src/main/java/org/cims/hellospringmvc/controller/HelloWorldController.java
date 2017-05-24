@@ -43,4 +43,5 @@ public class HelloWorldController {
 		model.addAttribute("redis_find", student);
 		return "redis_page";
 	}
+	
 }
