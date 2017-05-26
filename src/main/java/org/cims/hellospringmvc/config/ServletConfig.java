@@ -2,6 +2,7 @@ package org.cims.hellospringmvc.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -53,9 +54,9 @@ public class ServletConfig extends WebMvcConfigurerAdapter {
   }
   
   @Bean
-  public ThymeleafViewResolver viewResolver() {
+  public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine) {
 	ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-	viewResolver.setTemplateEngine(templateEngine());
+	viewResolver.setTemplateEngine(templateEngine);
 	return viewResolver;
   }
 }

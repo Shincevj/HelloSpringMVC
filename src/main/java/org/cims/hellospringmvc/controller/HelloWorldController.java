@@ -26,7 +26,7 @@ public class HelloWorldController {
 	@RequestMapping("/hello")
 	public String hello(Model model) {
 		List<Student> students = this.studentService.findAllStudents();
-		model.addAttribute("greeting", students.toString());
+		model.addAttribute("greeting", students);
 		return "helloworld";
 	}
 	
@@ -42,6 +42,11 @@ public class HelloWorldController {
 		Student student = studentRepository.findStudent(1);
 		model.addAttribute("redis_find", student);
 		return "redis_page";
+	}
+	
+	@RequestMapping("/welcomeForm")
+	public String welcomeForm() {
+		return "welcomeForm";
 	}
 	
 }

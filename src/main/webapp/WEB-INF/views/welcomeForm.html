@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+Hello, I am welcome form.
+<form action="/record" th:attr="action=@{/record}" method="post">
+  <div>
+  student ID:
+  <input type="text" name="stud_id"/>
+  </div>
+  <div>
+  name:
+  <input type="text" name="name"/>
+  </div>
+  <div>
+  email:
+  <input type="text" name="email"/>
+  </div>
+  <div>
+  dob:
+  <input type="date" name="dob"/>
+  </div>
+  <div>
+  <input type="submit" value="post"/>
+  </div>
+</form>
+</body>
+</html>
