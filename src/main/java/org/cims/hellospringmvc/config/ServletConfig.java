@@ -9,6 +9,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = {"org.cims.hellospringmvc.controller"})
@@ -23,12 +27,35 @@ public class ServletConfig extends WebMvcConfigurerAdapter {
   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
     configurer.enable();
   }
-  
+  /*
   @Bean
   public InternalResourceViewResolver jspViewResolver() {
     InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
     viewResolver.setPrefix("/WEB-INF/views/");
     viewResolver.setSuffix(".jsp");
     return viewResolver;
+  }
+  */
+  @Bean
+  public ServletContextTemplateResolver templateResolver() {
+	ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
+	templateResolver.setPrefix("/WEB-INF/views/");
+	templateResolver.setSuffix(".html");
+	templateResolver.setTemplateMode("HTML5");
+	return templateResolver;
+  }
+  
+  @Bean
+  public SpringTemplateEngine templateEngine() {
+	SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+	templateEngine.setTemplateResolver(templateResolver());
+	return templateEngine;
+  }
+  
+  @Bean
+  public ThymeleafViewResolver viewResolver() {
+	ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+	viewResolver.setTemplateEngine(templateEngine());
+	return viewResolver;
   }
 }

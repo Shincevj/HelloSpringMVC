@@ -96,6 +96,12 @@
     </dependency>
     
     <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring4</artifactId>
+      <version>2.1.2.RELEASE</version>
+    </dependency>
+    
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.5</version>
@@ -124,13 +130,13 @@
           <container>
             <containerId>tomcat8x</containerId>
             <type>installed</type>
-            <home>${env.CATALINA_HOME}</home>
-            <!-- <home>C:\Program Files\apache-tomcat-8.5.14</home> -->
+            <!-- <home>${env.CATALINA_HOME}</home> -->
+            <home>C:\Program Files\apache-tomcat-8.5.14</home>
           </container>
           <configuration>
             <type>standalone</type>
-            <home>/home/fx/workspace/cargoConfiguration</home>
-            <!--  <home>C:\users\fx\workspace\cargoConfiguration</home> -->
+            <!--  <home>/home/fx/workspace/cargoConfiguration</home> -->
+            <home>C:\users\fx\workspace\cargoConfiguration</home>
             <properties>
               <cargo.servlet.port>8080</cargo.servlet.port>
             </properties>
