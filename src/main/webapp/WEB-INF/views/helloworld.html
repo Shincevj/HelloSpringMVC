@@ -18,11 +18,13 @@
         <th>id</th>
         <th>name</th>
         <th>email</th>
+        <th>dob</th>
       </tr>
       <tr th:each="student : ${greeting}">
         <th th:text="${student.studId}">0</th>
         <th th:text="${student.name}">zero</th>
         <th th:text="${student.email}">zero@zero.gmail.com</th>
+        <th th:text="${student.dob}">27052017</th>
       </tr>
     </table>
   </div>
