@@ -28,7 +28,6 @@ public class RestfulController {
   }
   
   @RequestMapping("/record")
-  //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   public Student recordStudent(@RequestParam("stud_id") Integer stud_id,
 		                       @RequestParam("name") String name,
 		                       @RequestParam("email") String email,
@@ -43,7 +42,7 @@ public class RestfulController {
 	  student.setDob(date);
 	  studentService.insertStudent(student);
 	  Student retrieveStudent = this.studentService.findStudentById(stud_id);
-	  System.out.println(retrieveStudent.getDate());
+	  System.out.println(retrieveStudent.getDob());
 	  return retrieveStudent;
   }
 }

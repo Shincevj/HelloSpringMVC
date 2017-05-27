@@ -1,6 +1,9 @@
 package org.cims.hellospringmvc.model;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 
 public class Student implements Serializable {
@@ -11,6 +14,8 @@ public class Student implements Serializable {
   private Integer studId;
 	private String name;
 	private String email;
+	@JsonFormat
+    (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy", timezone = "GMT+8")
 	private Date dob;
 	
 	public void setStudId(Integer studId){
@@ -34,7 +39,7 @@ public class Student implements Serializable {
 	public String getEmail(){
 		return this.email;
 	}
-	public Date getDate(){
+	public Date getDob(){
 		return this.dob;
 	}
 	
