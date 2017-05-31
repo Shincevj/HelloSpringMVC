@@ -26,4 +26,9 @@ public class StudentService {
   public void insertStudent(Student student) {
     this.studentMapper.insertStudent(student);
   }
+  
+  //test Spring AOP
+  public void printStudentName() {
+    System.out.println(findStudentById(1).getName());
+  }
 }

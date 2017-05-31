@@ -1,6 +1,7 @@
 package org.cims.hellospringmvc.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 //import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -15,11 +16,13 @@ import org.apache.ibatis.session.SqlSessionFactory;
 //import org.apache.log4j.lf5.util.Resource;
 import org.cims.hellospringmvc.mappers.StudentMapper;
 import org.cims.hellospringmvc.model.Student;
+import org.cims.hellospringmvc.services.StudentGreet;
 import org.cims.hellospringmvc.services.StudentService;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 
 @Configuration
+@EnableAspectJAutoProxy
 @MapperScan("org.cims.hellospringmvc.mappers")
 @ComponentScan(basePackages = {"org.cims.hellospringmvc.repository"})
 public class DomainConfig {
@@ -76,6 +79,11 @@ public class DomainConfig {
     RedisTemplate redisTemplate = new RedisTemplate();
     redisTemplate.setConnectionFactory(jedisConnectionFactory());
     return redisTemplate;
+  }
+  
+  @Bean
+  public StudentGreet studentGreet() {
+    return new StudentGreet();
   }
 
 }

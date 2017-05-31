@@ -27,6 +27,7 @@ public class HelloWorldController {
   public String hello(Model model) {
     List<Student> students = this.studentService.findAllStudents();
     model.addAttribute("greeting", students);
+    this.studentService.printStudentName();
     return "helloworld";
   }
 
