@@ -7,6 +7,6 @@ import org.aspectj.lang.annotation.Before;
 public class StudentGreet {
   @Before("execution(* org.cims.hellospringmvc.services.StudentService.printStudentName(..))")
   public void pringHello() {
-    System.out.println("hello before");
+    System.out.println("hello from aspect test");
   }
 }

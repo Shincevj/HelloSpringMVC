@@ -172,13 +172,13 @@
           <container>
             <containerId>tomcat8x</containerId>
             <type>installed</type>
-            <!-- <home>${env.CATALINA_HOME}</home> -->
-            <home>C:\Program Files\apache-tomcat-8.5.14</home>
+            <home>${env.CATALINA_HOME}</home>
+            <!-- <home>C:\Program Files\apache-tomcat-8.5.14</home> -->
           </container>
           <configuration>
             <type>standalone</type>
-            <!-- <home>/home/fx/workspace/cargoConfiguration</home> -->
-            <home>C:\users\fx\workspace\cargoConfiguration</home>
+            <home>/home/fx/workspace/cargoConfiguration</home>
+            <!-- <home>C:\users\fx\workspace\cargoConfiguration</home> -->
             <properties>
               <cargo.servlet.port>8080</cargo.servlet.port>
             </properties>

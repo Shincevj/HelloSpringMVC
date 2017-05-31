@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.equalToIgnoringCase;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {DomainConfig.class})
@@ -18,7 +19,7 @@ public class StudentServiceTest {
   
   @Test
   public void testStudentService() {
-    //this.studentService.printStudentName();
+    assertThat(this.studentService.printStudentName(), equalToIgnoringCase("Student1"));
     assertThat(studentService, instanceOf(StudentService.class));
   }
 }
