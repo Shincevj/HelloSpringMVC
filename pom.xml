@@ -16,6 +16,7 @@
     <!-- <cargo.configuration.home>/home/fx/workspace/cargoConfiguration</cargo.configuration.home> -->
     <cargo.configuration.home>C:\users\fx\workspace\cargoConfiguration</cargo.configuration.home>
   </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -54,7 +55,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version> 
+      <version>${spring.version}</version>
       <exclusions>
         <exclusion>
           <groupId>commons-logging</groupId>
@@ -160,103 +161,89 @@
       <artifactId>logback-classic</artifactId>
       <version>1.2.3</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
       <version>1.7.21</version>
     </dependency>
-    <!-- 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.5</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-      <scope>runtime</scope>
-    </dependency>
-    -->
-  </dependencies>  
+    <!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
+      <version>1.7.5</version> </dependency> <dependency> <groupId>org.slf4j</groupId> 
+      <artifactId>slf4j-log4j12</artifactId> <version>1.7.5</version> <scope>runtime</scope> 
+      </dependency> <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> 
+      <version>1.2.17</version> <scope>runtime</scope> </dependency> -->
+  </dependencies>
   <build>
     <finalName>HelloSpringMVC</finalName>
     <pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven2-plugin</artifactId>
-        <version>1.6.3</version>
-        <configuration>
-          <container>
-            <containerId>tomcat8x</containerId>
-            <type>installed</type>
-            <home>${tomcat.CATALINA.home}</home>
-          </container>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.cargo</groupId>
+          <artifactId>cargo-maven2-plugin</artifactId>
+          <version>1.6.3</version>
           <configuration>
-            <type>standalone</type>
-            <home>${cargo.configuration.home}</home>
-            <properties>
-              <cargo.servlet.port>8080</cargo.servlet.port>
-            </properties>
+            <container>
+              <containerId>tomcat8x</containerId>
+              <type>installed</type>
+              <home>${tomcat.CATALINA.home}</home>
+            </container>
+            <configuration>
+              <type>standalone</type>
+              <home>${cargo.configuration.home}</home>
+              <properties>
+                <cargo.servlet.port>8080</cargo.servlet.port>
+              </properties>
+            </configuration>
           </configuration>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-toolchains-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>toolchain</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <toolchains>
-            <jdk>
-              <version>1.8</version>
-              <vendor>sun-windows</vendor>
-            </jdk>
-          </toolchains>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.20</version>
-        <configuration>
-          <forkCount>3</forkCount>
-          <reuseForks>true</reuseForks>
-          <!-- <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine> -->
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-    </plugins>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.6.1</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-toolchains-plugin</artifactId>
+          <version>1.1</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>toolchain</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <toolchains>
+              <jdk>
+                <version>1.8</version>
+                <vendor>sun-windows</vendor>
+              </jdk>
+            </toolchains>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20</version>
+          <configuration>
+            <forkCount>3</forkCount>
+            <reuseForks>true</reuseForks>
+            <!-- <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine> -->
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
+        </plugin>
+      </plugins>
     </pluginManagement>
   </build>
 </project>
