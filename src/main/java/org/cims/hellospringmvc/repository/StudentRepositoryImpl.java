@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
+
 import java.util.Map;
+
 import javax.annotation.PostConstruct;
 
 @Repository
@@ -21,10 +23,10 @@ public class StudentRepositoryImpl implements StudentRepository {
   private static String KEY = "Student";
 
   private RedisTemplate<String, Student> redisTemplate;
-  private HashOperations hashOps;
+  private HashOperations<String, Integer, Student> hashOps;
 
   @Autowired
-  private StudentRepositoryImpl(RedisTemplate redisTemplate) {
+  private StudentRepositoryImpl(RedisTemplate<String, Student> redisTemplate) {
     this.redisTemplate = redisTemplate;
   }
 
@@ -45,7 +47,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     return (Student) hashOps.get(KEY, studId);
   }
 
-  public Map<Object, Object> findAllStudents() {
+  public Map<Integer, Student> findAllStudents() {
     return hashOps.entries(KEY);
   }
 

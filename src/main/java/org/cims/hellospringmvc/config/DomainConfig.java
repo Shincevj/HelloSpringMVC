@@ -75,8 +75,8 @@ public class DomainConfig {
   }
   
   @Bean
-  public RedisTemplate redisTemplate() {
-    RedisTemplate redisTemplate = new RedisTemplate();
+  public RedisTemplate<String, Student> redisTemplate() {
+    RedisTemplate<String, Student> redisTemplate = new RedisTemplate<String, Student>();
     redisTemplate.setConnectionFactory(jedisConnectionFactory());
     return redisTemplate;
   }

@@ -18,7 +18,7 @@ public interface StudentRepository {
 
   Student findStudent(Integer studId);
 
-  Map<Object, Object> findAllStudents();
+  Map<Integer, Student> findAllStudents();
 
   void deleteStudent(Integer studId);
 }
