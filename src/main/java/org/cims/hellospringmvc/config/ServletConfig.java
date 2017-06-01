@@ -31,6 +31,7 @@ public class ServletConfig extends WebMvcConfigurerAdapter {
     configurer.enable();
   }
 
+  //set default welcome page
   @Override
   public void addViewControllers(ViewControllerRegistry registry) {
     registry.addViewController("/").setViewName("index");

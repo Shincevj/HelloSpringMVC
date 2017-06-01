@@ -11,7 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.context.ContextLoaderListener;
 
 public class SpringWebAppInitializer implements WebApplicationInitializer {
-  // the method "onStartup" need java 1.8: Properties/Project Facets/java
+  // the method "onStartup" need java 1.8: use toolchain to fix it
   @Override
   public void onStartup(ServletContext servletContext) {
     // Create the 'root' application context
