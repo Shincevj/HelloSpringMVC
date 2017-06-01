@@ -11,15 +11,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {DomainConfig.class})
 public class StudentServiceTest {
   @Autowired
   private StudentService studentService;
   
+  //static final Logger logger = LoggerFactory.getLogger("testLogger");
+  
   @Test
   public void testStudentService() {
     assertThat(this.studentService.printStudentName(), equalToIgnoringCase("Tom"));
     assertThat(studentService, instanceOf(StudentService.class));
+    //logger.debug("logger test");
   }
 }
