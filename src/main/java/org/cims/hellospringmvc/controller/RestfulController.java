@@ -23,7 +23,7 @@ public class RestfulController {
   @RequestMapping("/greeting")
   public Student greeting() {
     Student student = this.studentService.findStudentById(1);
-    this.studentService.printStudentName(); //test AOP
+    this.studentService.printStudentName(1); //test AOP
     return student;
   }
 
