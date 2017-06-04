@@ -6,6 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,13 +30,19 @@ public class DomainConfig {
   
   @Bean
   public DataSource dataSource() {
-    DriverManagerDataSource datasource = new DriverManagerDataSource();
-    datasource.setDriverClassName("com.mysql.jdbc.Driver");
-    datasource.setUrl("jdbc:mysql://localhost:3306/MySQL");
-    //datasource.setUrl("jdbc:mysql://localhost:3306/hellospring");
-    datasource.setUsername("root");
-    datasource.setPassword("234458");
-    return datasource;
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+    dataSource.setUrl("jdbc:mysql://localhost:3306/MySQL");
+    //dataSource.setUrl("jdbc:mysql://localhost:3306/hellospring");
+    dataSource.setUsername("root");
+    dataSource.setPassword("234458");
+    return dataSource;
+  }
+  
+  @Bean
+  public DataSourceTransactionManager transactionManager(DriverManagerDataSource dataSource) {
+	  DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+	  return transactionManager;
   }
   
   @Bean

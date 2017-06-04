@@ -28,7 +28,7 @@ public class StudentService {
   }
   
   //test Spring AOP
-  public String printStudentName() {
-    return findStudentById(1).getName();
+  public String printStudentName(Integer ID) {
+    return findStudentById(ID).getName();
   }
 }
