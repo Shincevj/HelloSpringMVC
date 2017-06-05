@@ -9,3 +9,4 @@ src/main/webapp/META-INF
 *.iml
 ~/*
 *.log
+test.log
