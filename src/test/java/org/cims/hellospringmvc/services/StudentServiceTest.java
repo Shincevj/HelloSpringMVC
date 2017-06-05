@@ -30,7 +30,7 @@ public class StudentServiceTest {
 
   @Test
   public void testStudentService() {
-    assertThat(this.studentService.printStudentName(1), equalToIgnoringCase("Student1"));
+    assertThat(this.studentService.printStudentName(1), equalToIgnoringCase("Tom"));
     assertThat(studentService, instanceOf(StudentService.class));
     // logger.debug("logger test");
   }

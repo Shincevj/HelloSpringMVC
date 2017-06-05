@@ -11,10 +11,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>4.3.1.RELEASE</spring.version>
-    <tomcat.CATALINA.home>${env.CATALINA_HOME}</tomcat.CATALINA.home>
-    <!-- <tomcat.CATALINA.home>C:\Program Files\apache-tomcat-8.5.14</tomcat.CATALINA.home> -->
-    <cargo.configuration.home>/home/fx/workspace/cargoConfiguration</cargo.configuration.home>
-    <!-- <cargo.configuration.home>C:\users\fx\workspace\cargoConfiguration</cargo.configuration.home> -->
+    <!-- <tomcat.CATALINA.home>${env.CATALINA_HOME}</tomcat.CATALINA.home> -->
+    <tomcat.CATALINA.home>C:\Program Files\apache-tomcat-8.5.14</tomcat.CATALINA.home>
+    <!-- <cargo.configuration.home>/home/fx/workspace/cargoConfiguration</cargo.configuration.home> -->
+    <cargo.configuration.home>C:\users\fx\workspace\cargoConfiguration</cargo.configuration.home>
   </properties>
 
   <dependencies>
@@ -220,7 +220,7 @@
             <toolchains>
               <jdk>
                 <version>1.8</version>
-                <vendor>sun-ubuntu</vendor>
+                <vendor>sun-windows</vendor>
               </jdk>
             </toolchains>
           </configuration>

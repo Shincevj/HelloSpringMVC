@@ -2,12 +2,15 @@ package org.cims.hellospringmvc.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 //import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -26,16 +29,18 @@ import org.mybatis.spring.annotation.MapperScan;
 @EnableAspectJAutoProxy
 @MapperScan("org.cims.hellospringmvc.mappers")
 @ComponentScan(basePackages = {"org.cims.hellospringmvc.repository"})
+@PropertySource("classpath:/mysql.properties")
 public class DomainConfig {
+  @Autowired
+  Environment env;
   
   @Bean
   public DataSource dataSource() {
     DriverManagerDataSource dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-    dataSource.setUrl("jdbc:mysql://localhost:3306/MySQL");
-    //dataSource.setUrl("jdbc:mysql://localhost:3306/hellospring");
-    dataSource.setUsername("root");
-    dataSource.setPassword("234458");
+    dataSource.setUrl(env.getProperty("spring.datasource.windows.url"));
+    dataSource.setUsername(env.getProperty("spring.datasource.name"));
+    dataSource.setPassword(env.getProperty("spring.datasource.password"));
     return dataSource;
   }
   
