@@ -2,42 +2,72 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=divece-width, initial-scale=1"/>
+<meta name="viewport" content="width=divece-width, initial-scale=1" />
 <title>Spring MVC -HelloWorld</title>
 <link rel="stylesheet"
-  href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script type="text/javascript" src="webjars/jquery/3.2.1/jquery.min.js"></script>
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript"
-  src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h2>CIMS MES<span>beta</span></h2>
+    <h2>
+      CIMS MES <span>alpha</span>
+    </h2>
     <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#">Home</a></li>
-      <li><a data-toggle="tab" href="#">订单管理</a></li>
-      <li><a data-toggle="tab" href="#">质量管理</a></li>
-      <li><a data-toggle="tab" href="#">设备管理</a></li>
-      <li><a data-toggle="tab" href="#">资源管理</a></li>
+      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+      <li><a data-toggle="tab" href="#order">Order Management</a></li>
+      <li><a data-toggle="tab" href="#quality">Quality
+          Management</a></li>
+      <li><a data-toggle="tab" href="#device">Device Management</a></li>
+      <li><a data-toggle="tab" href="#resource">Resource
+          Management</a></li>
     </ul>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>
+          Welcome to CIMS MES <span>alpha</span>
+        </h3>
+        <p>There are four modules, namely "Order Management",
+          "Quality Management", "Device Management", "Resource
+          Management". Enjoy.</p>
+      </div>
+      <div id="order" class="tab-pane fade">
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Infomation</div>
+          <table class="table">
+            <tr>
+              <th>id</th>
+              <th>name</th>
+              <th>email</th>
+              <th>dob</th>
+            </tr>
+            <tr th:each="student : ${greeting}">
+              <th th:text="${student.studId}">0</th>
+              <th th:text="${student.name}">zero</th>
+              <th th:text="${student.email}">zero@zero.gmail.com</th>
+              <th th:text="${student.dob}">27052017</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="quality" class="tab-pane fade">
+        <h3>Welcome to Quality Management</h3>
+        <p>There is nothing to do for now</p>
+      </div>
+      <div id="device" class="tab-pane fade">
+        <h3>Welcome to Device Management</h3>
+        <p>There is nothing to do for now</p>
+      </div>
+      <div id="resource" class="tab-pane fade">
+        <h3>Welcome to Resource Management</h3>
+        <p>There is nothing to do for now</p>
+      </div>
+    </div>
   </div>
-  <div class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading">Infomation</div>
-    <table class="table">
-      <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>email</th>
-        <th>dob</th>
-      </tr>
-      <tr th:each="student : ${greeting}">
-        <th th:text="${student.studId}">0</th>
-        <th th:text="${student.name}">zero</th>
-        <th th:text="${student.email}">zero@zero.gmail.com</th>
-        <th th:text="${student.dob}">27052017</th>
-      </tr>
-    </table>
-  </div>
+
 </body>
 </html>
