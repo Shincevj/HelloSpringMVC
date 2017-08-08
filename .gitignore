@@ -9,4 +9,7 @@ src/main/webapp/META-INF
 *.iml
 ~/*
 *.log
+<<<<<<< HEAD
 test.log
+=======
+>>>>>>> java-config-thymleaf
